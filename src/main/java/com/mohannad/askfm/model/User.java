@@ -1,9 +1,9 @@
 package com.mohannad.askfm.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * created by mohannad  on 13/09/19
@@ -27,8 +27,19 @@ public class User extends BaseEntity {
     private String profileImagePath;  // upload image in file and store path
     private String backgroundImagePath;
 
+    //every users have a lot of followers
+    @OneToMany(mappedBy="user")
+    private Set<Follower> followers= new HashSet<>();
+    /*every user  have a list of questions */
+    @OneToMany(mappedBy="user")
+    private Set<Question> questions = new HashSet<>();
+    /*every user  have a list of answers */
+    @OneToMany(mappedBy="user")
+    private Set<Answer> answers = new HashSet<>();
 
-
+    /*every user  have a list of notifications */
+    @OneToMany(mappedBy="user")
+    private Set<Notification> notifications = new HashSet<>();
 
     public String getUserName() {
         return userName;
@@ -148,5 +159,37 @@ public class User extends BaseEntity {
 
     public void setBackgroundImagePath(String backgroundImagePath) {
         this.backgroundImagePath = backgroundImagePath;
+    }
+
+    public Set<Follower> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(Set<Follower> followers) {
+        this.followers = followers;
+    }
+
+    public Set<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Set<Question> questions) {
+        this.questions = questions;
+    }
+
+    public Set<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(Set<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public Set<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(Set<Notification> notifications) {
+        this.notifications = notifications;
     }
 }

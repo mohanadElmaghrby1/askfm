@@ -1,8 +1,6 @@
 package com.mohannad.askfm.model;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -15,6 +13,10 @@ public class Notification extends BaseEntity {
     private Date time;
     @Enumerated(value = EnumType.ORDINAL)
     private NotificationType type;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public String getContent() {
         return content;
@@ -30,5 +32,21 @@ public class Notification extends BaseEntity {
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    public NotificationType getType() {
+        return type;
+    }
+
+    public void setType(NotificationType type) {
+        this.type = type;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
