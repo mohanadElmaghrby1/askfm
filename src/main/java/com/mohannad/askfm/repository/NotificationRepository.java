@@ -1,4 +1,4 @@
-package repository;
+package com.mohannad.askfm.repository;
 
 import com.mohannad.askfm.model.Notification;
 import org.springframework.data.repository.CrudRepository;
