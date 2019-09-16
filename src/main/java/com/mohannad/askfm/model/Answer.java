@@ -17,11 +17,11 @@ public class Answer extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne(fetch= FetchType.LAZY)
+    @OneToOne(fetch= FetchType.LAZY )
     @JoinColumn(name="question_id")
     private Question question;
 
-    @OneToMany(mappedBy = "answer")
+    @OneToMany(mappedBy = "answer", cascade = CascadeType.ALL)
     private Set<Like> likes = new HashSet<>();
 
     public String getContent() {
@@ -63,4 +63,6 @@ public class Answer extends BaseEntity {
     public void setLikes(Set<Like> likes) {
         this.likes = likes;
     }
+
+
 }

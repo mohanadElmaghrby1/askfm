@@ -14,9 +14,14 @@ public class Question extends BaseEntity {
     /*question date  */
     private Date date;
     //every question has sender
-    @ManyToOne
-    @JoinColumn(name="receiver_id")
-    private User user;
+    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "sender_id", referencedColumnName = "id")
+    private User senderUser;
+
+    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "receiver_id", referencedColumnName = "id")
+    private User receiverUser;
+
 
     @OneToOne(mappedBy="question",fetch= FetchType.LAZY,cascade=CascadeType.ALL)
     private Answer answer;
@@ -37,12 +42,20 @@ public class Question extends BaseEntity {
         this.date = date;
     }
 
-    public User getUser() {
-        return user;
+    public User getSenderUser() {
+        return senderUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setSenderUser(User senderUser) {
+        this.senderUser = senderUser;
+    }
+
+    public User getReceiverUser() {
+        return receiverUser;
+    }
+
+    public void setReceiverUser(User receiverUser) {
+        this.receiverUser = receiverUser;
     }
 
     public Answer getAnswer() {

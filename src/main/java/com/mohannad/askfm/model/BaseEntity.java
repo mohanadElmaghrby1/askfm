@@ -9,7 +9,7 @@ import java.io.Serializable;
 /**
  * created by mohannad  on 13/09/19
  */
-@MappedSuperclass
+@MappedSuperclass //base entity for jpa and we dont want to create table for it
 public class BaseEntity implements Serializable {
 
     @Id
