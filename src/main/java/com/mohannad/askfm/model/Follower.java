@@ -13,6 +13,11 @@ public class Follower extends BaseEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "follower_id")
+    private User follower;
+
+
     public User getUser() {
         return user;
     }
@@ -21,5 +26,11 @@ public class Follower extends BaseEntity {
         this.user = user;
     }
 
+    public User getFollower() {
+        return follower;
+    }
 
+    public void setFollower(User follower) {
+        this.follower = follower;
+    }
 }
