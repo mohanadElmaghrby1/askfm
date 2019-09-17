@@ -32,6 +32,10 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy="user", cascade = CascadeType.ALL)
     private Set<Follower> followers= new HashSet<>();
 
+    //every users have a lot of followers
+    @OneToMany(mappedBy="follower", cascade = CascadeType.ALL)
+    private Set<Follower> following= new HashSet<>();
+
     /*every user  have a list of questions asked by others*/
     @OneToMany(mappedBy = "receiverUser", cascade = CascadeType.ALL)
     private Set<Question> received_questions = new HashSet<>();
@@ -217,5 +221,13 @@ public class User extends BaseEntity {
 
     public void setLike(Set<Like> like) {
         this.like = like;
+    }
+
+    public Set<Follower> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(Set<Follower> following) {
+        this.following = following;
     }
 }
