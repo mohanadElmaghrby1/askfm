@@ -3,9 +3,9 @@ package com.mohannad.askfm.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -17,31 +17,31 @@ import java.util.Set;
 @Entity
 public class User extends BaseEntity {
 
-    @Column(name = "email", unique = true, nullable = false)
-    @Email(message = "*Please provide a valid Email")
-    @NotBlank(message = "*Please provide an email")
+//    @Column(name = "email", unique = true, nullable = false)
+//    @Email(message = "*Please provide a valid Email")
+//    @NotNull(message = "*Please provide an email")
     private String email;
 
-    @Column(name = "password", nullable = false)
-    @Length(min = 5, message = "*Your password must have at least 5 characters")
-    @NotBlank(message = "*Please provide your password")
+//    @Column(name = "password", nullable = false)
+//    @Length(min = 5, message = "*Your password must have at least 5 characters")
+//    @NotNull(message = "*Please provide your password")
     @JsonIgnore
     private String password;
 
-    @Column(name = "username", nullable = false, unique = true)
-    @Length(min = 5, message = "*Your username must have at least 5 characters")
-    @NotBlank(message = "*Please provide your name")
+//    @Column(name = "username", nullable = false, unique = true)
+//    @Length(min = 5, message = "*Your username must have at least 5 characters")
+//    @NotNull(message = "*Please provide your name")
     private String username;
 
-    @Column(name = "name")
-    @NotBlank(message = "*Please provide your name")
+//    @Column(name = "name")
+//    @NotNull(message = "*Please provide your name")
     private String name;
 
-    @Column(name = "last_name")
-    @NotBlank(message = "*Please provide your last name")
+//    @Column(name = "last_name")
+//    @NotNull(message = "*Please provide your last name")
     private String lastName;
 
-    @Column(name = "active", nullable = false)
+//    @Column(name = "active", nullable = false)
     private int active;
 
     private String birthDay;
@@ -83,7 +83,9 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Like> like;
 
-    //user role one user can has multi role (user , admin)
+    //user role one user can has multi rol
+    //
+    // e (user , admin)
     //and each role can be for multi user
     @ManyToMany
     @JoinTable(name = "user_role" ,

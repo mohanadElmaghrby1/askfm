@@ -1,9 +1,6 @@
 package com.mohannad.askfm.bootstrap;
 
-import com.mohannad.askfm.model.Answer;
-import com.mohannad.askfm.model.Like;
-import com.mohannad.askfm.model.Question;
-import com.mohannad.askfm.model.User;
+import com.mohannad.askfm.model.*;
 import com.mohannad.askfm.repository.*;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -46,14 +43,14 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
 
         //create a user
         User user = new User();
-        user.setUserName("Mohannad_Elmaghrby");
-        user.setFullName("Mohannad ELmaghrby");
+        user.setUsername("Mohannad_Elmaghrby");
+        user.setName("Mohannad ELmaghrby");
         user.setEmail("mohanad20201996@gmail.com");
         user.setBirthDay("20-2-1996");
         user.setGender("male");
         user.setBio("software developer");
         user.setLocation("kom hamada");
-        user.setPassWord("1234");
+        user.setPassword("123456");
         user.setProfileImagePath("www.com");
         user.setBackgroundImagePath("www.comB");
 
@@ -95,12 +92,40 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user.setReceived_questions(questionHashSet);
         question1.setSenderUser(user);
         question1.setReceiverUser(user);
+
+        //create user 2
+        User user2=new User();
+        user2.setName("soso hamdy");
+        user2.setPassword("12345678");
+        user2.setUsername("sosoham");
+        user2.setEmail("mohanad20201996a@gmail.com");
+        user2.setBirthDay("20-2-1996");
+        user2.setGender("male");
+        user2.setBio("software developer");
+        user2.setLocation("kom hamada");
+        user2.setProfileImagePath("www.com");
+        user2.setBackgroundImagePath("www.comB");
+
+        //create a follower
+        Follower follower1=new Follower();
+
+        HashSet<Follower>followerset=new HashSet<>();
+        followerset.add(follower1);
+
+
         userRepository.save(user);
+        userRepository.save(user2);
         questionRepository.save(question1);
         answerRepository.save(answer1);
         likeRepository.save(like1);
         likeRepository.save(like2);
 
+        //user 1 follow user 2
+        follower1.setUser(user2);
+        follower1.setFollower(user);
+        user.setFollowers(followerset);
+        user2.setFollowers(followerset);
+        followerRepository.save(follower1);
 
     }
 }
