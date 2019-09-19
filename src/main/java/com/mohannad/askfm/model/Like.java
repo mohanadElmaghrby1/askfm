@@ -13,20 +13,12 @@ import javax.persistence.Table;
 public class Like extends BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "answer_id")
-    private Answer answer;
-
-    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user; // user who pressed like
 
-    public Answer getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
-    }
+    @ManyToOne
+    @JoinColumn(name = "answer_id")
+    private Answer answer;
 
     public User getUser() {
         return user;
@@ -34,5 +26,13 @@ public class Like extends BaseEntity {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
     }
 }
