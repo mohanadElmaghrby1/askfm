@@ -1,5 +1,10 @@
 package com.mohannad.askfm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,10 +17,33 @@ import java.util.Set;
 @Entity
 public class User extends BaseEntity {
 
-    private String userName;
-    private String passWord;
-    private String fullName;
+    @Column(name = "email", unique = true, nullable = false)
+    @Email(message = "*Please provide a valid Email")
+    @NotEmpty(message = "*Please provide an email")
     private String email;
+
+    @Column(name = "password", nullable = false)
+    @Length(min = 5, message = "*Your password must have at least 5 characters")
+    @NotEmpty(message = "*Please provide your password")
+    @JsonIgnore
+    private String password;
+
+    @Column(name = "username", nullable = false, unique = true)
+    @Length(min = 5, message = "*Your username must have at least 5 characters")
+    @NotEmpty(message = "*Please provide your name")
+    private String username;
+
+    @Column(name = "name")
+    @NotEmpty(message = "*Please provide your name")
+    private String name;
+
+    @Column(name = "last_name")
+    @NotEmpty(message = "*Please provide your last name")
+    private String lastName;
+
+    @Column(name = "active", nullable = false)
+    private int active;
+
     private String birthDay;
     private String gender;
     private String location;
@@ -55,28 +83,44 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Like> like;
 
-    public String getUserName() {
-        return userName;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPassWord() {
-        return passWord;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
     }
 
     public String getEmail() {
