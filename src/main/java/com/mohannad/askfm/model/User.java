@@ -3,7 +3,7 @@ package com.mohannad.askfm.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,26 +19,26 @@ public class User extends BaseEntity {
 
     @Column(name = "email", unique = true, nullable = false)
     @Email(message = "*Please provide a valid Email")
-    @NotEmpty(message = "*Please provide an email")
+    @NotBlank(message = "*Please provide an email")
     private String email;
 
     @Column(name = "password", nullable = false)
     @Length(min = 5, message = "*Your password must have at least 5 characters")
-    @NotEmpty(message = "*Please provide your password")
+    @NotBlank(message = "*Please provide your password")
     @JsonIgnore
     private String password;
 
     @Column(name = "username", nullable = false, unique = true)
     @Length(min = 5, message = "*Your username must have at least 5 characters")
-    @NotEmpty(message = "*Please provide your name")
+    @NotBlank(message = "*Please provide your name")
     private String username;
 
     @Column(name = "name")
-    @NotEmpty(message = "*Please provide your name")
+    @NotBlank(message = "*Please provide your name")
     private String name;
 
     @Column(name = "last_name")
-    @NotEmpty(message = "*Please provide your last name")
+    @NotBlank(message = "*Please provide your last name")
     private String lastName;
 
     @Column(name = "active", nullable = false)
