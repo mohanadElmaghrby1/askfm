@@ -11,4 +11,9 @@ public class IndexController {
     public String getLogin(){
         return "sign-up";
     }
+
+    @RequestMapping({"/home", "/index.html"})
+    public String getHomePage(){
+        return "index";
+    }
 }
