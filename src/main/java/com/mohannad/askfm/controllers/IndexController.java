@@ -12,6 +12,12 @@ public class IndexController {
         return "sign-up";
     }
 
+
+    @RequestMapping("/logout")
+    public String geLogout(){
+        return "sign-up";
+    }
+
     @RequestMapping({"/home", "/index.html"})
     public String getHomePage(){
         return "index";
