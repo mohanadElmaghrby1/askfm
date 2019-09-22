@@ -14,10 +14,11 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //.antMatchers("/", "/signup", "/login", "/*.css", "/*.jpg")
         http
                 .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/", "/home").authenticated()//you must load to see this pages
+                .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
