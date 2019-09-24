@@ -1,9 +1,10 @@
 package com.mohannad.askfm.bootstrap;
 
 import com.mohannad.askfm.model.*;
-import com.mohannad.askfm.repository.*;
+import com.mohannad.askfm.repositories.*;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -36,6 +37,10 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+
+        /*password encoder*/
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
         //create a question
         Question question1 = new Question();
         question1.setContent("how old are you?");
@@ -50,7 +55,7 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user.setGender("male");
         user.setBio("software developer");
         user.setLocation("kom hamada");
-        user.setPassword("123456");
+        user.setPassword(encoder.encode("123456"));
         user.setProfileImagePath("www.com");
         user.setBackgroundImagePath("www.comB");
 
@@ -96,7 +101,7 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         //create user 2
         User user2=new User();
         user2.setName("soso hamdy");
-        user2.setPassword("12345678");
+        user2.setPassword(encoder.encode("12345678"));
         user2.setUsername("sosoham");
         user2.setEmail("mohanad20201996a@gmail.com");
         user2.setBirthDay("20-2-1996");
