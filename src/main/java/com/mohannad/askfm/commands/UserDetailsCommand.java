@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * warp user inside UserDetails object for spring security use
+ */
 public class UserDetailsCommand implements UserDetails {
 
     private User user;
