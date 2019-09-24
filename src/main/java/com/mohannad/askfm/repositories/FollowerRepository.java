@@ -1,4 +1,4 @@
-package com.mohannad.askfm.repository;
+package com.mohannad.askfm.repositories;
 
 import com.mohannad.askfm.model.Follower;
 import org.springframework.data.repository.CrudRepository;
