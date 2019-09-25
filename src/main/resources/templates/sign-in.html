@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" >
+<head>
+    <meta charset="utf-8">
+    <title>Welcome | Ask.fm</title>
+    <link rel="shortcut icon" href="image/logo.png">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/normalaize.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/Home.css">
+</head>
+<body>
+<section class="nav-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2"><img class="logo " src="image/logonav.png"></div>
+            <div ><h5 data-class="login">Login</h5></div>
+            <div ><a href="/sign-up" class="btn">Sign-up</a></div>
+
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</section>
+<form class="login" th:action="@{/login}" method="post">
+    <div class="color">
+        <div class="container2">
+            <div style="color:red"  th:if="${param.error}">
+                Invalid username or password.
+            </div>
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+            <input type="text" name="username" placeholder="username"/> <br>
+            <input type="password" name="password" placeholder="password"/> <br>
+            <input type="checkbox" name="check"> Remember Password
+            <a href="#">Forget Password ?</a>
+            <input class="btn" type="submit" value="Sign In"/>
+            <div class="clear"></div>
+        </div>
+    </div>
+</form>
+<!--   End form Login -->
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/custom.js"></script>
+</body>
+</html>
