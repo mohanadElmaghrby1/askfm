@@ -27,13 +27,14 @@
 </section>
 
 
-<form class="sign-up" th:action="@{/sign-up}" method="post">
+<form class="sign-up"  th:object="${user}" th:action="@{/user/}" method="post">
     <div class="color">
         <div class="container2">
-            <input type="text" placeholder="username"> <br>
-            <input type="password" placeholder="password"> <br>
-            <input type="text" placeholder="full name"><br>
-            <input type="Email" placeholder="Email"> <br>
+            <input type="hidden" th:field="*{id}"/>
+            <input type="text" placeholder="username" th:field="*{username}"> <br>
+            <input type="password" placeholder="password" th:field="*{password}"> <br>
+            <input type="text" placeholder="full name" th:field="*{name}"><br>
+            <input  placeholder="Email" th:field="*{email}"> <br>
             <div class="row">
                 <h4>birtdate</h4>
                 <select class="col-xs-4">
@@ -47,13 +48,14 @@
                 </select>
             </div>
             <h4>Gender</h4>
-            <select class="Gender">
-                <option>Male</option>
-                <option>Female</option>
+            <select class="Gender" th:field="*{gender}">
+                <option th:value="Male">Male</option>
+                <option th:value="Female"> Female</option>
             </select>
             <h4>Language</h4>
-            <select class="Language">
-                <option selected>English</option>
+            <select class="Language" th:field="*{language}">
+                <option th:value="English">English</option>
+                <option th:value="Arabic">Arabic</option>
             </select>
             <p>By signing up you agree to our <span> <a>Terms</a></span> and <SPAN> <a
                     href=""> Privacy policy</a></SPAN></p>
