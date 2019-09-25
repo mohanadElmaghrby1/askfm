@@ -27,10 +27,13 @@
 </section>
 
 
-<form class="sign-up"  th:object="${user}" th:action="@{/user/}" method="post">
+<form class="sign-up"  th:object="${user}" th:action="@{/sign-up}" method="post">
     <div class="color">
         <div class="container2">
+
             <input type="hidden" th:field="*{id}"/>
+            <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                   class="alert alert-danger"></label>
             <input type="text" placeholder="username" th:field="*{username}"> <br>
             <input type="password" placeholder="password" th:field="*{password}"> <br>
             <input type="text" placeholder="full name" th:field="*{name}"><br>
