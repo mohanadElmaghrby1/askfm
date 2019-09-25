@@ -32,22 +32,33 @@
         <div class="container2">
 
             <input type="hidden" th:field="*{id}"/>
+<!--            username error message display-->
             <label th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
                    class="alert alert-danger"></label>
             <input type="text" placeholder="username" th:field="*{username}"> <br>
+<!--            password error message-->
+            <label th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                   class="alert alert-danger"></label>
             <input type="password" placeholder="password" th:field="*{password}"> <br>
+<!--            name error message -->
+            <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                   class="alert alert-danger"></label>
             <input type="text" placeholder="full name" th:field="*{name}"><br>
+
+<!--            email error message-->
+            <label th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                   class="alert alert-danger"></label>
             <input  placeholder="Email" th:field="*{email}"> <br>
             <div class="row">
-                <h4>birtdate</h4>
+                <h4>birthDate</h4>
                 <select class="col-xs-4">
-                    <option selected disabled>Day</option>
+                    <option >Day</option>
                 </select>
                 <select class="col-xs-4">
-                    <option selected disabled>Months</option>
+                    <option >Months</option>
                 </select>
                 <select class="col-xs-4">
-                    <option selected disabled>Year</option>
+                    <option>Year</option>
                 </select>
             </div>
             <h4>Gender</h4>
