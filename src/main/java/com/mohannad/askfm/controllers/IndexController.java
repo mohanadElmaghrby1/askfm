@@ -9,14 +9,13 @@ public class IndexController {
 
     @RequestMapping("/login")
     public String getLogin(){
-        return "sign-up";
+        return "sign-in";
     }
 
-
-    @RequestMapping("/logout")
-    public String geLogout(){
-        return "sign-up";
-    }
+//    @RequestMapping("/sign-up")
+//    public String signUp(){
+//        return "sign-up";
+//    }
 
     @RequestMapping({"/home", "/index.html"})
     public String getHomePage(){

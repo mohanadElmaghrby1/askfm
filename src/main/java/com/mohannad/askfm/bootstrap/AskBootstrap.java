@@ -51,6 +51,7 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user.setUsername("Mohannad_Elmaghrby");
         user.setName("Mohannad ELmaghrby");
         user.setEmail("mohanad20201996@gmail.com");
+        user.setActive(0);
         user.setBirthDay("20-2-1996");
         user.setGender("male");
         user.setBio("software developer");
@@ -103,6 +104,7 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user2.setName("soso hamdy");
         user2.setPassword(encoder.encode("12345678"));
         user2.setUsername("sosoham");
+        user2.setActive(1);
         user2.setEmail("mohanad20201996a@gmail.com");
         user2.setBirthDay("20-2-1996");
         user2.setGender("male");

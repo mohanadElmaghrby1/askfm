@@ -32,7 +32,7 @@ $(document).ready(function () {
  
     });
     //Add -  Remove Class Selected From home
-        $('.login').hide();
+        $('.signup').hide();
         $('.nav-home li').click(function () {
         $(this).addClass('select-home').siblings('li').removeClass('select-home');
         $('.signup , .login').hide();
