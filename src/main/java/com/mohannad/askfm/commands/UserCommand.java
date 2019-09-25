@@ -1,5 +1,6 @@
 package com.mohannad.askfm.commands;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -10,20 +11,17 @@ import javax.validation.constraints.NotNull;
 public class UserCommand {
     private Long id;
 
-    @Length(min = 5, message = "*Your username must have at least 5 characters")
-    @NotNull(message = "*Please provide your name")
+    @Length(min = 5, message = "*Please provide your username")
     private String username;
 
-    @Length(min = 5, message = "*Your password must have at least 5 characters")
-    @NotNull(message = "*Please provide your password")
+    @Length(min = 5, message = "*Please provide your password")
     private String password;
 
-    @Length(min = 5, message = "*Your email must have at least 5 characters")
-    @NotNull(message = "*Please provide your email")
+    @Length(min = 5, message = "*Please provide your email")
+    @Email(message = "*Please provide a valid Email")
     private String email;
 
-    @Length(min = 5, message = "*Your name must have at least 5 characters")
-    @NotNull(message = "*Please provide your name")
+    @Length(min = 5, message = "*Please provide your Full Name")
     private String name;
     private Integer birthDay;
     private Integer birthMonth;
