@@ -17,31 +17,27 @@ import java.util.Set;
 @Entity
 public class User extends BaseEntity {
 
-//    @Column(name = "email", unique = true, nullable = false)
-//    @Email(message = "*Please provide a valid Email")
-//    @NotNull(message = "*Please provide an email")
-    private String email;
+    @Column(name = "username", nullable = false, unique = true)
+    @Length(min = 5, message = "*Your username must have at least 5 characters")
+    @NotNull(message = "*Please provide your name")
+    private String username;
 
-//    @Column(name = "password", nullable = false)
-//    @Length(min = 5, message = "*Your password must have at least 5 characters")
-//    @NotNull(message = "*Please provide your password")
+    @Column(name = "password", nullable = false)
+    @Length(min = 5, message = "*Your password must have at least 5 characters")
+    @NotNull(message = "*Please provide your password")
     @JsonIgnore
     private String password;
 
-//    @Column(name = "username", nullable = false, unique = true)
-//    @Length(min = 5, message = "*Your username must have at least 5 characters")
-//    @NotNull(message = "*Please provide your name")
-    private String username;
+    @Column(name = "email", unique = true, nullable = false)
+    @Email(message = "*Please provide a valid Email")
+    @NotNull(message = "*Please provide an email")
+    private String email;
 
-//    @Column(name = "name")
-//    @NotNull(message = "*Please provide your name")
+    @Column(name = "name")
+    @NotNull(message = "*Please provide your name")
     private String name;
 
-//    @Column(name = "last_name")
-//    @NotNull(message = "*Please provide your last name")
-    private String lastName;
-
-//    @Column(name = "active", nullable = false)
+    @Column(name = "active", nullable = false)
     private int active;
 
     private String birthDay;
@@ -83,11 +79,12 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Like> like;
 
-    //user role one user can has multi rol
-    //
-    // e (user , admin)
-    //and each role can be for multi user
-    @ManyToMany
+    /*user role one user can has multi rol
+     e (user , admin)
+    and each role can be for multi user
+    FetchType.EAGER to load role one user id loaded
+    */
+    @ManyToMany(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     @JoinTable(name = "user_role" ,
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
@@ -115,14 +112,6 @@ public class User extends BaseEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public int getActive() {
@@ -284,4 +273,14 @@ public class User extends BaseEntity {
     public void setFollowing(Set<Follower> following) {
         this.following = following;
     }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+
 }
