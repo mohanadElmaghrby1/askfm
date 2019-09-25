@@ -43,6 +43,11 @@ public class UserServiceImpl implements UserService {
         return userOptional.get();
     }
 
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
 
     @Override
     public UserCommand findCommandById(Long id) {
@@ -51,6 +56,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUserName(String username) {
-        return null;
+        return userRepository.findByUsername(username);
     }
 }
