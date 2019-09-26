@@ -4,7 +4,7 @@
 
 <head>
         <meta charset="utf-8">
-        
+
         <title>Profile | Ask.fm</title>
         <link rel="shortcut icon" href="image/logo.png">
         <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -15,7 +15,7 @@
 
     <body>
           <!-- ------------------------------- Start navbar--------------------------------- -->
-            <div class="navgbar">            
+            <div class="navgbar">
                 <div class="container">
                      <a href="index.html">
                       <img src="image/logonav.png">
@@ -32,7 +32,7 @@
                             <li> <a href="setting-profile.html">Setting</a></li>
                             <li><a th:href="@{/logout}">Logout</a></li>
                           </ul>
-                          
+
                         </li>
                     </ul>
                     <div class="clear"></div>
@@ -45,9 +45,9 @@
 
                     <div class="cover row">
                         <div class="container default_photo-cover">
-                         
+
                             <div class="Profilee">
-                            
+
                                 <img class="profile" src="image/person1.jpg">
 <!--                                <h1 class="panel-title" th:text="${recipe.description}">Recipe Description Here!</h1>-->
                                 <h4 class="name" th:text="${user.name}"> <span class="online"></span>Mohannad Elmaghrby</h4>
@@ -55,37 +55,37 @@
                                   <p class="followers" style="color: #FF6648">
                                       <span sec:authentication="isAuthenticated()" style="color: #FF6648">
 <!--                                          Followers:<strong>1150</strong>-->
-                                          <a href="#" class="btn" style="color: #FF6648">Follow</a>
+                                          <a th:href="@{'/follow/' + ${user.getId()}}" style="color: #FF6648">Follow</a>
                                       </span>
 <!--                                      <span sec:authorize="username!=user.name">Followers:-->
 <!--                                          <strong>11564380</strong>-->
 <!--                                      </span>-->
                                   </p>
-                                   <p class="message"><span><i class="fa fa-envelope-o" aria-hidden="true"></i> </span></p>  
+                                   <p class="message"><span><i class="fa fa-envelope-o" aria-hidden="true"></i> </span></p>
 
                             </div>
                             </div>
-                        
-                        
+
+
                          <div class="container likes">
-                          
+
                           <ul>
                             <li data-class="question" class="activee">
-                            <strong>720</strong> <br> 
+                            <strong>720</strong> <br>
                                    <span>Answer</span>
                              </li>
                             <li data-class="profilelikes">
-                              <strong>5000</strong> <br> 
+                              <strong>5000</strong> <br>
                                     <span>Likes</span>
                             </li>
                             <li data-class="gift">
                               <strong>1</strong> <br>
-                                   <span>Gifts</span> 
-                               
+                                   <span>Gifts</span>
+
                             </li>
                           </ul>
-                           
-                              
+
+
                             </div>
 
                     </div>
@@ -97,13 +97,13 @@
                <!-- --------------------------------------------- start Post ----------------------------------- -->
             <div class="row">
                <div class="container">
-                
+
 
                   <div class="post col-md-8 col-xs-12">
-                     
-                      
 
-                      
+
+
+
 
                          <section  class="question profilelikes">
                          <div>
@@ -111,10 +111,10 @@
                             <a href="#">Account name</a>
                          </div>
                             <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
+                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                             
-                              <span>Abdo H. Ahmed</span> 
+
+                              <span>Abdo H. Ahmed</span>
                             </div>
                             <footer>
                           <div class="one">
@@ -128,7 +128,7 @@
                           </div>
                            </footer>
                         <div class="clear"></div>
-                          
+
                        </section>
                          <div class="clear"></div>
                           <section  class="question profilelikes">
@@ -137,10 +137,10 @@
                             <a href="#">Account name</a>
                          </div>
                             <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
+                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                             
-                              <span>Abdo H. Ahmed</span> 
+
+                              <span>Abdo H. Ahmed</span>
                             </div>
                             <footer>
                           <div class="one">
@@ -154,19 +154,19 @@
                           </div>
                            </footer>
                         <div class="clear"></div>
-                          
+
                        </section>
-                      
+
                           <section  class="question profilelikes">
                          <div>
                             <h3 class="h3">How Are You ? </h3>
                             <a href="#">Account name</a>
                          </div>
                             <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
+                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                             
-                              <span>Abdo H. Ahmed</span> 
+
+                              <span>Abdo H. Ahmed</span>
                             </div>
                             <footer>
                           <div class="one">
@@ -180,19 +180,19 @@
                           </div>
                            </footer>
                         <div class="clear"></div>
-                          
+
                        </section>
-                        
+
                           <section  class="question profilelikes">
                          <div>
                             <h3 class="h3">How Are You ? </h3>
                             <a href="#">Account name</a>
                          </div>
                             <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
+                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                             
-                              <span>Abdo H. Ahmed</span> 
+
+                              <span>Abdo H. Ahmed</span>
                             </div>
                             <footer>
                           <div class="one">
@@ -206,19 +206,19 @@
                           </div>
                            </footer>
                        <div class="clear"></div>
-                          
+
                        </section>
-                         
+
                           <section  class="question">
                          <div>
                             <h3 class="h3">How Are You ? </h3>
                             <a href="#">Account name</a>
                          </div>
                             <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
+                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                            
-                              <span>Abdo H. Ahmed</span> 
+
+                              <span>Abdo H. Ahmed</span>
                             </div>
                             <footer>
                           <div class="one">
@@ -232,7 +232,7 @@
                           </div>
                            </footer>
                         <div class="clear"></div>
-                          
+
                        </section>
 
                        <section  class="question">
@@ -241,10 +241,10 @@
                             <a href="#">Account name</a>
                          </div>
                             <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
+                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                             
-                              <span>Abdo H. Ahmed</span> 
+
+                              <span>Abdo H. Ahmed</span>
                             </div>
                             <footer>
                           <div class="one">
@@ -258,7 +258,7 @@
                           </div>
                            </footer>
                         <div class="clear"></div>
-                          
+
                        </section>
 
                        <section  class="question">
@@ -267,10 +267,10 @@
                             <a href="#">Account name</a>
                          </div>
                             <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
+                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                             
-                              <span>Abdo H. Ahmed</span> 
+
+                              <span>Abdo H. Ahmed</span>
                             </div>
                             <footer>
                           <div class="one">
@@ -284,7 +284,7 @@
                           </div>
                            </footer>
                         <div class="clear"></div>
-                          
+
                        </section>
 
                        <section  class="question">
@@ -293,10 +293,10 @@
                             <a href="#">Account name</a>
                          </div>
                             <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
+                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                             
-                              <span>Abdo H. Ahmed</span> 
+
+                              <span>Abdo H. Ahmed</span>
                             </div>
                             <footer>
                           <div class="one">
@@ -310,7 +310,7 @@
                           </div>
                            </footer>
                         <div class="clear"></div>
-                          
+
                        </section>
                        <section  class="gift">
                         <div>
@@ -321,13 +321,13 @@
                          <div class="clear"></div>
 
 
-                       
-                          
-                       
 
 
-              
-                 
+
+
+
+
+
 
                  </div>
                    <!-- --------------------------------------------- End Post ----------------------------------- -->
@@ -335,12 +335,12 @@
                 <div class="hiddeninask">
                   <div class="ask col-md-3  col-md-offset-1">
                         <h3 class="h3">Ask your friends</h3>
-                     
+
                        <form>
                           <textarea placeholder="What, when, why… ask" name="qusetion" id="" ></textarea>
                           <input type="checkbox" name="" value=""> Ask anonymously
                           <a href="askQuestion.html" class="btn"> ask</a>
-                         
+
                        </form>
                      </div>
 
@@ -351,13 +351,13 @@
                     <div><a href="https://www.facebook.com/feidi33" target="_blank">https://www.facebook.com/feidi33</a> </div>
                      <div>#FEIDI</div>
                     </div>
-             
+
                      </div>
                    </div>
 
                    </div>
-                   
-                  
+
+
 <!--                     </div>
                    </div>
                    
@@ -366,10 +366,10 @@
      
       -->
             <!-- --------------------------------------------- End ask ----------------------------------- -->
-     
-            
-            
-            
+
+
+
+
 
 
            <script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>
