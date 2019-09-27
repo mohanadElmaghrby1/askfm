@@ -41,11 +41,6 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         /*password encoder*/
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        //create a question
-        Question question1 = new Question();
-        question1.setContent("how old are you?");
-        question1.setDate(new Date(2019,9,15));
-
         //create a user
         User user = new User();
         user.setUsername("Mohannad_Elmaghrby");
@@ -61,44 +56,6 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user.setBackgroundImagePath("www.comB");
 
 
-        //create a answer1
-        Answer answer1 = new Answer();
-        answer1.setContent("iam a 20 years old");
-        answer1.setDate(new Date(2019,9,15));
-
-        //create a question
-        Question question12 = new Question();
-        question12.setContent("where are you from?");
-        question12.setDate(new Date(2019,9,16));
-
-        //create a answer1
-        Answer answer12 = new Answer();
-        answer12.setContent("iam from alex");
-        answer12.setDate(new Date(2019,9,16));
-
-
-        //create like
-        Like like1 = new Like();
-        //create like
-        Like like2 = new Like();
-        //first create set and assign then single
-        //assign many first
-        Set<Like> likeSet = new HashSet<>();
-        likeSet.add(like1);
-        likeSet.add(like2);
-        answer1.setLikes(likeSet);
-        like1.setUser(user);
-        like2.setUser(user);
-        answer1.setQuestion(question1);
-        answer1.setUser(user);
-        like1.setAnswer(answer1);
-        like2.setAnswer(answer1);
-        HashSet<Question>questionHashSet = new HashSet<>();
-        questionHashSet.add(question1);
-        user.setReceived_questions(questionHashSet);
-        question1.setSenderUser(user);
-        question1.setReceiverUser(user);
-
         //create user 2
         User user2=new User();
         user2.setName("soso hamdy");
@@ -113,26 +70,8 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user2.setProfileImagePath("www.com");
         user2.setBackgroundImagePath("www.comB");
 
-        //create a follower
-        Follower follower1=new Follower();
-
-        HashSet<Follower>followerset=new HashSet<>();
-        followerset.add(follower1);
-
-
         userRepository.save(user);
         userRepository.save(user2);
-        questionRepository.save(question1);
-        answerRepository.save(answer1);
-        likeRepository.save(like1);
-        likeRepository.save(like2);
-
-        //user 1 follow user 2
-        follower1.setUser(user2);
-        follower1.setFollower(user);
-        user.setFollowers(followerset);
-        user2.setFollowers(followerset);
-        followerRepository.save(follower1);
 
     }
 }
