@@ -38,5 +38,9 @@ $(document).ready(function () {
         $('.signup , .login').hide();
         $('.' + $(this).data('class')).fadeIn();
     });
+
+    // $(".follow").click(function(){
+    //     alert("follow done");
+    // });
    
 });
