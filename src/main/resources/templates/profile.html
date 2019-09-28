@@ -15,6 +15,13 @@
 
 <body>
 <!-- ------------------------------- Start navbar--------------------------------- -->
+<!--<div th:switch="${message}">-->
+<!--    <div th:case="'empty'" class="alert alert-success">-->
+<!--    </div>-->
+<!--    <div th:case="*" class="alert alert-danger">-->
+<!--        <strong th:text="${message}"></strong>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="navgbar">
     <div class="container">
         <a href="index.html">
@@ -54,8 +61,8 @@
             <p class="username" th:text="'@'+${user.username}">@FEIDI</p>
             <p class="followers">
                 <span th:switch="${follow}">
-                    <a th:case="'no'" th:href="@{'/follow/' + ${user.getId()}}" style="color: #ffffff">Follow</a>
-                    <a th:case="'yes'" th:href="@{'/follow/' + ${user.getId()}}" style="color: #ffffff">UnFollow</a>
+                    <a class="follow" th:case="'no'" th:href="@{'/follow/' + ${user.getId()}}" style="color: #ffffff">Follow</a>
+                    <a class="unfollow" th:case="'yes'" th:href="@{'/follow/' + ${user.getId()}}" style="color: #ffffff">UnFollow</a>
                 </span>
             </p>
             <p class="message"><span><i class="fa fa-envelope-o" aria-hidden="true"></i> </span></p>
@@ -321,11 +328,10 @@
             <div class="ask col-md-3  col-md-offset-1">
                 <h3 class="h3">Ask your friends</h3>
 
-                <form>
-                    <textarea placeholder="What, when, why… ask" name="qusetion" id=""></textarea>
+                <form th:action="@{'/askQuestion/'+${user.getUsername()}}" method="get" >
+                    <textarea placeholder="What, when, why… ask" name="question" id=""></textarea>
                     <input type="checkbox" name="" value=""> Ask anonymously
-                    <a href="askQuestion.html" class="btn"> ask</a>
-
+                    <input class="btn" type="submit" value="ask"/>
                 </form>
             </div>
 
