@@ -1,5 +1,7 @@
 package com.mohannad.askfm.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,14 +14,18 @@ public class Question extends BaseEntity {
     /*question content */
     private String content ;
     /*question date  */
-    private Date date;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_date", nullable = false, updatable = false)
+    @CreationTimestamp
+    private Date createDate;
+
     //every question has sender
-    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "sender_id", referencedColumnName = "id")
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "sender_id")
     private User senderUser;
 
-    @ManyToOne(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "receiver_id", referencedColumnName = "id")
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name = "receiver_id")
     private User receiverUser;
 
 
@@ -34,12 +40,12 @@ public class Question extends BaseEntity {
         this.content = content;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public User getSenderUser() {
