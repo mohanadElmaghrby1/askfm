@@ -72,6 +72,5 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
 
         userRepository.save(user);
         userRepository.save(user2);
-
     }
 }
