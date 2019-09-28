@@ -22,8 +22,8 @@ import java.security.Principal;
 public class ProfileController {
 
     private UserService userService;
-    private UserToUserCommand userToUserCommand;
     private FollowerService followerService;
+    private UserToUserCommand userToUserCommand;
     private UserCommandToUser userCommandToUser;
 
     public ProfileController(UserService userService, UserToUserCommand userToUserCommand,
@@ -57,34 +57,6 @@ public class ProfileController {
         return "profile";
     }
 
-    @GetMapping("follow/{id}")
-    public String followAndUnFollow(@PathVariable String id, Principal principal , Model model){
-        //make logged in user follow this user
-        UserDetailsCommand userDetailsCommand = (UserDetailsCommand)
-                SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        //get logged in user object
-        // logged user want to follow the other user
-        User follower = userDetailsCommand.getUser();
-
-        //get user to follow
-        User followed = userService.findByID(new Long(id));
-
-        //make currentUser follow the followedUser
-        //check if followed the unfoloow
-        Follower followerRelation = followerService.findByUserAndFollower(followed, follower);
-        if(followerRelation!=null){
-            //unFollow
-            followerService.delete(followerRelation);
-        }else {
-            //follow
-            followerService.follow(followed,follower);
-        }
-        System.out.println(id);
-        System.out.println(principal.toString());
-
-        //redirect to the same user profile
-        return "redirect:/"+followed.getUsername();
-    }
 
 }
