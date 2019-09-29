@@ -56,7 +56,4 @@ public class ProfileController {
         model.addAttribute("user" , userCommand);
         return "profile";
     }
-
-
-
 }
