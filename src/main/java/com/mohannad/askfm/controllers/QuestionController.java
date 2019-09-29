@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
+import java.util.List;
 
 /**
  * created by mohannad  on 27/09/19
@@ -27,8 +28,20 @@ public class QuestionController {
         this.userService = userService;
     }
 
+    @RequestMapping("/questions")
+    public String getQuestions(Principal  principal , Model model){
+        //if not logged in
+        if (principal==null)
+            return "redirect:/login";
+        //get user asked questions
+        User loggedInUser = userService.findByUserName(principal.getName());
+        List<Question> allAskedQuestions = questionService.findAllAskedQuestion(loggedInUser);
+        model.addAttribute("questions" , allAskedQuestions);
+        return "question";
+    }
+
     @GetMapping({"/askQuestion/{username}"})
-    public String getQuestionPage(@PathVariable String username , @RequestParam (value = "question")String question,
+    public String getAskQuestionPage(@PathVariable String username , @RequestParam (value = "question")String question,
                                   Principal  principal){
         System.out.println(username);
         System.out.println(question);
