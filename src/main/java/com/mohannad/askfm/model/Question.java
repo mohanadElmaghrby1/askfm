@@ -71,4 +71,15 @@ public class Question extends BaseEntity {
     public void setAnswer(Answer answer) {
         this.answer = answer;
     }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "content='" + content + '\'' +
+                ", createDate=" + createDate +
+                ", senderUser=" + senderUser +
+                ", receiverUser=" + receiverUser +
+                ", answer=" + answer +
+                '}';
+    }
 }
