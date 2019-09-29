@@ -1,217 +1,168 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" >
-    <head>
-        <meta charset="utf-8">
-        
-        <title>Question | Ask.fm</title>
-        <link rel="shortcut icon" href="../static/image/logo.png">
-        <link rel="stylesheet" href="../static/css/bootstrap.css">
-        <link rel="stylesheet" href="../static/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../static/css/normalaize.css">
-        <link rel="stylesheet" href="../static/css/question.css">
-    </head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
 
-    <body>
-           <!-- ------------------------------- Start navbar--------------------------------- -->
-            <div class="navgbar">            
-                <div class="container">
-                     <a href="index.html">
-                      <img src="../static/image/logonav.png">
-                    </a>
-                    <ul >
-                        <li><a href="index.html">Feed</a></li>
-                        <li class="active"><a href="question.html">Question</a></li>
-                        <li><a href="profile.html">Profile</a></li>
-                        <li><a href="friends.html">Friends</a></li>
-                       <li><a href="notification.html">Notification</a> <span>4</span></li>
-                        <li class="menu">
-                          <a ><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
-                          <ul class="sub-menu">
-                            <li> <a href="setting-profile.html">Setting</a></li>
-                            <li><a href="#">Logout</a></li>
-                          </ul>
-                          
-                        </li>
-                    </ul>
-                    <div class="clear"></div>
+    <title>Question | Ask.fm</title>
+    <link rel="shortcut icon" th:href="@{/image/logo.png}" href="../static/image/logo.png">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/css/normalaize.css}" href="../static/css/normalaize.css">
+    <link rel="stylesheet" th:href="@{/css/question.css}" href="../static/css/question.css"/>
+</head>
+
+<body>
+<!-- ------------------------------- Start navbar--------------------------------- -->
+<div class="navgbar">
+    <div class="container">
+        <a href="index.html">
+            <img src="image/logonav.png">
+        </a>
+        <ul>
+            <li><a href="index.html" th:href="@{/}">Feed</a></li>
+            <li class="active"><a th:href="@{/questions}">Question</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="friends.html">Friends</a></li>
+            <li><a href="notification.html">Notification</a> <span>4</span></li>
+            <li class="menu">
+                <a><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
+                <ul class="sub-menu">
+                    <li><a href="setting-profile.html">Setting</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+
+</div>
+<!-- --------------------------------------------- start Post ----------------------------------- -->>
+<div class="row">
+    <div class="container">
+
+
+        <div class="post col-md-8 col-xs-12">
+            <article>
+                <section>
+                    <div class="question">
+                        <a class="h3">Question <span class="num">3</span> </a>
+                        <a> <i class="fa fa-times" aria-hidden="true"></i> Delete All Quetion </a>
+                        <a> <i class="fa fa-sort-desc" aria-hidden="true"></i> Get Random Quetion </a>
+                    </div>
+                </section>
+                <div class="clear"></div>
+                <section>
+                    <div class="question">
+                        <p>Questions you’ve been asked will not be visible to other users on your profile until you
+                            choose to answer them</p>
+                    </div>
+                </section>
+
+                <div class="clear"></div>
+
+                <section th:each="question : ${questions}">
+                    <div class="question_answer">
+                        <h3 class="h3" th:text="${question.getContent()}">How Are You ? </h3>
+                        <a th:href="@{'/{username}'(username=${question.getSenderUser().getUsername()})}"
+                           th:text="${question.getSenderUser().getUsername()}">Account name</a>
+                        <p th:text="${question.getCreateDate().getHours()}">About 1 hr</p>
+                        <a href="#"><i class="fa fa-times delete" aria-hidden="true"></i></a>
+                        <a href="answerpeople.html" class="answer answer_btn">Answer <i class="fa fa-paper-plane-o"
+                                                                                        aria-hidden="true"></i></a>
+                    </div>
+                </section>
+                <div class="clear"></div>
+            </article>
+
+        </div>
+        <div class="ask col-md-3  col-md-offset-1">
+            <h3 class="h3">Ask your friends</h3>
+            <form>
+                <textarea placeholder="What, when, why… ask" name="qusetion" id=""></textarea>
+                <input type="checkbox" name="" value=""> Ask anonymously
+                <a href="askQuestion.html" class="btn"> ask</a>
+            </form>
+        </div>
+
+        <div class="ask col-md-3  col-md-offset-1 friends">
+            <h3 class="h3">Your friends</h3>
+            <div class="scrollbar" id="style-13">
+                <div class="force-overflow">
+
+                    <div class="account">
+                        <a href="#"><img src="image/person1.jpg"></a>
+                        <a href="#">
+                            <span>Abdo H. Ahmed</span>
+                        </a>
+                        <a href="askQuestion.html" class="btn"> ask</a>
+                    </div>
+                    <div class="account">
+                        <a href="#"><img src="image/person1.jpg"></a>
+                        <a href="#">
+                            <span>Abdo H. Ahmed</span>
+                        </a>
+                        <a href="askQuestion.html" class="btn"> ask</a>
+                    </div>
+                    <div class="account">
+                        <a href="#"><img src="image/person1.jpg"></a>
+                        <a href="#">
+                            <span>Abdo H. Ahmed</span>
+                        </a>
+                        <a href="askQuestion.html" class="btn"> ask</a>
+                    </div>
+                    <div class="account">
+                        <a href="#"><img src="image/person1.jpg"></a>
+                        <a href="#">
+                            <span>Abdo H. Ahmed</span>
+                        </a>
+                        <a href="askQuestion.html" class="btn"> ask</a>
+                    </div>
+                    <div class="account">
+                        <a href="#"><img src="image/person1.jpg"></a>
+                        <a href="#">
+                            <span>Abdo H. Ahmed</span>
+                        </a>
+                        <a href="askQuestion.html" class="btn"> ask</a>
+                    </div>
+                    <div class="account">
+                        <a href="#"><img src="image/person1.jpg"></a>
+                        <a href="#">
+                            <span>Abdo H. Ahmed</span>
+                        </a>
+                        <a href="askQuestion.html" class="btn"> ask</a>
+                    </div>
+                    <div class="account">
+                        <a href="#"><img src="image/person1.jpg"></a>
+                        <a href="#">
+                            <span>Abdo H. Ahmed</span>
+                        </a>
+                        <a href="askQuestion.html" class="btn"> ask</a>
+                    </div>
+                    <div class="account">
+                        <a href="#"><img src="image/person1.jpg"></a>
+                        <a href="#">
+                            <span>Abdo H. Ahmed</span>
+                        </a>
+                        <a href="askQuestion.html" class="btn"> ask</a>
+                    </div>
+
+
                 </div>
 
             </div>
-           <!-- --------------------------------------------- start Post ----------------------------------- -->>
-            <div class="row">
-               <div class="container">
-                
+        </div>
+    </div>
 
-                  <div class="post col-md-8 col-xs-12">
-                     <article>
-                      
+</div>
 
-                         <section>
-                         <div class="question">
-                            <a class="h3">Question <span class="num">3</span> </a>
-                            <a> <i class="fa fa-times" aria-hidden="true"></i> Delete All Quetion  </a>
-                            <a> <i class="fa fa-sort-desc" aria-hidden="true"></i> Get Random Quetion  </a>
-                            </div>
-                       </section>
-                        <div class="clear"></div>
+<!-- --------------------------------------------- End Post ----------------------------------- -->
+<!-- --------------------------------------------- Start ask ----------------------------------- -->
 
-                         <section>
-                         <div class="question">
-                           <p>Questions you’ve been asked will not be visible to other users on your profile until you choose to answer them</p>
-                           </div>
-                       </section>
-                        
-                        <div class="clear"></div>
+<!-- --------------------------------------------- Start ask ----------------------------------- -->
 
-                        <section>
-
-                         <div class="question_answer">
-                            <h3 class="h3">How Are You ? </h3>
-                              <a href="#">Account name</a>
-                              <p>About 1 hr</p>
-                              <a href="#"><i class="fa fa-times delete" aria-hidden="true"></i></a>
-                              <a href="answerpeople.html" class="answer answer_btn">Answer <i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
-                           
-                            </div>
-                       </section>
-
-                      <section>
-
-                         <div class="question_answer">
-                            <h3 class="h3">How Are You ? </h3>
-                              <a href="#">Account name</a>
-                              <p>About 1 hr</p>
-                              <a href="#"><i class="fa fa-times delete" aria-hidden="true"></i></a>
-                              <a href="answerpeople.html" class="answer answer_btn">Answer <i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
-                           
-                            </div>
-                       </section>
-
-                       <section>
-
-                         <div class="question_answer">
-                            <h3 class="h3">How Are You ? </h3>
-                              <a href="#">Account name</a>
-                              <p>About 1 hr</p>
-                              <a href="#"><i class="fa fa-times delete" aria-hidden="true"></i></a>
-                              <a href="answerpeople.html" class="answer answer_btn">Answer <i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
-                           
-                            </div>
-                       </section>
-                       <section>
-
-                         <div class="question_answer">
-                            <h3 class="h3">How Are You ? </h3>
-                              <a href="#">Account name</a>
-                              <p>About 1 hr</p>
-                              <a href="#"><i class="fa fa-times delete" aria-hidden="true"></i></a>
-                              <a href="answerpeople.html" class="answer answer_btn">Answer <i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
-                           
-                            </div>
-                       </section>
-                        
-                        
-                        <div class="clear"></div>
-
-                       
-                     </article>
-
-                    </div>
-
-               
-                  <div class="ask col-md-3  col-md-offset-1">
-                      <h3 class="h3">Ask your friends</h3>
-                     
-                     <form>
-                        <textarea placeholder="What, when, why… ask" name="qusetion" id="" ></textarea>
-                      <input type="checkbox" name="" value=""> Ask anonymously
-                        <a href="askQuestion.html" class="btn"> ask</a>
-                     </form>
-                   </div>
-
-                   <div class="ask col-md-3  col-md-offset-1 friends">
-                      <h3 class="h3">Your friends</h3>
-                      <div class="scrollbar" id="style-13">
-                        <div class="force-overflow">
-
-                          <div class="account">
-                            <a href="#"><img src="../static/image/person1.jpg"></a>
-                            <a href="#">
-                              <span>Abdo H. Ahmed</span>
-                            </a>
-                            <a href="askQuestion.html" class="btn"> ask</a>
-                         </div>
-                         <div class="account">
-                            <a href="#"><img src="../static/image/person1.jpg"></a>
-                            <a href="#">
-                              <span>Abdo H. Ahmed</span>
-                            </a>
-                            <a href="askQuestion.html" class="btn"> ask</a>
-                         </div>
-                         <div class="account">
-                            <a href="#"><img src="../static/image/person1.jpg"></a>
-                            <a href="#">
-                              <span>Abdo H. Ahmed</span>
-                            </a>
-                            <a href="askQuestion.html" class="btn"> ask</a>
-                         </div>
-                         <div class="account">
-                            <a href="#"><img src="../static/image/person1.jpg"></a>
-                            <a href="#">
-                              <span>Abdo H. Ahmed</span>
-                            </a>
-                            <a href="askQuestion.html" class="btn"> ask</a>
-                         </div>
-                         <div class="account">
-                            <a href="#"><img src="../static/image/person1.jpg"></a>
-                            <a href="#">
-                              <span>Abdo H. Ahmed</span>
-                            </a>
-                            <a href="askQuestion.html" class="btn"> ask</a>
-                         </div>
-                         <div class="account">
-                            <a href="#"><img src="../static/image/person1.jpg"></a>
-                            <a href="#">
-                              <span>Abdo H. Ahmed</span>
-                            </a>
-                            <a href="askQuestion.html" class="btn"> ask</a>
-                         </div>
-                         <div class="account">
-                            <a href="#"><img src="../static/image/person1.jpg"></a>
-                            <a href="#">
-                              <span>Abdo H. Ahmed</span>
-                            </a>
-                            <a href="askQuestion.html" class="btn"> ask</a>
-                         </div>
-                         <div class="account">
-                            <a href="#"><img src="../static/image/person1.jpg"></a>
-                            <a href="#">
-                              <span>Abdo H. Ahmed</span>
-                            </a>
-                            <a href="askQuestion.html" class="btn"> ask</a>
-                         </div>
-                        
-                     
-                        </div>
-             
-                     </div>
-                   </div>
-            
-
-
-                 
-
-                 </div>
-                 
-            </div>
-            
-            <!-- --------------------------------------------- End Post ----------------------------------- -->
-            <!-- --------------------------------------------- Start ask ----------------------------------- -->
-             
-            <!-- --------------------------------------------- Start ask ----------------------------------- -->
-
-      <script src="../static/js/jquery-1.12.0.min.js" type="text/javascript"></script>
-       <script src="../static/js/bootstrap.mins.js" type="text/javascript"></script>
-      <script src="../static/js/custom.js" type="text/javascript"></script>
-    </body>
+<script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.mins.js" type="text/javascript"></script>
+<script src="js/custom.js" type="text/javascript"></script>
+</body>
 </html>
