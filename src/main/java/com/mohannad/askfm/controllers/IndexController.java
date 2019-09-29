@@ -11,7 +11,7 @@ import java.security.Principal;
  * create by mohannad on 9/25/2019
  */
 @Controller
-public class HomeController {
+public class IndexController {
 
     @GetMapping({"/","/home", "/index.html"})
     public String getHomePage(){
