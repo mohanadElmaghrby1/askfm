@@ -45,8 +45,8 @@ public class QuestionController {
                                   Principal  principal){
         System.out.println(username);
         System.out.println(question);
-        //get the logged in user
         User receivedUser = userService.findByUserName(username);
+        //get the logged in user
         User senderUser = userService.findByUserName(principal.getName());
         //create new Question
         Question quest = new Question();
@@ -55,5 +55,14 @@ public class QuestionController {
         quest.setSenderUser(senderUser);
         questionService.save(quest);
         return "redirect:/"+username;
+    }
+
+    @GetMapping("/question/delete/{id}")
+    public String delete(@PathVariable String id , Model model){
+        //get the question
+        Question question = questionService.findById(new Long(id));
+        //delete
+        questionService.delete(question);
+        return "redirect:/questions";
     }
 }
