@@ -4,6 +4,7 @@ import com.mohannad.askfm.commands.UserCommand;
 import com.mohannad.askfm.commands.UserDetailsCommand;
 import com.mohannad.askfm.convertors.UserCommandToUser;
 import com.mohannad.askfm.convertors.UserToUserCommand;
+import com.mohannad.askfm.exceptions.NotFoundException;
 import com.mohannad.askfm.model.Follower;
 import com.mohannad.askfm.model.User;
 import com.mohannad.askfm.services.FollowerService;
@@ -38,6 +39,9 @@ public class ProfileController {
     public String getProfile(@PathVariable String username , Model model){
         //check if user is correct
         User user =  userService.findByUserName(username);
+        if (user==null)
+            throw new NotFoundException("User "+username +" Not Found");
+
         UserCommand userCommand = userToUserCommand.convert(user);
         //add attribute for if the logged user follow the requested user profile
         //make logged in user follow this user
