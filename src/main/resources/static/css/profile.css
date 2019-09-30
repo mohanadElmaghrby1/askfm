@@ -78,7 +78,7 @@ body{
 }
 .default_photo-cover{
 	height: 330px;
-	background:url(../image/cover.jpg) no-repeat center center ;
+	background:url(../images/cover.jpg) no-repeat center center ;
 	background-size: cover;
 }
 	
