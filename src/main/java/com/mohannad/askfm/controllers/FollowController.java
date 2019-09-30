@@ -27,10 +27,10 @@ public class FollowController {
         this.followerService = followerService;
     }
 
-    @GetMapping("follow/{id}")
-    public String followAndUnFollow(@PathVariable String id, Principal principal){
+    @GetMapping("follow/{username}")
+    public String followAndUnFollow(@PathVariable String username){
         //get user to follow
-        User followed = userService.findByID(new Long(id));
+        User followed = userService.findByUserName(username);
         followerService.follow(followed);
         //redirect to the same user profile
         return "redirect:/"+followed.getUsername();
