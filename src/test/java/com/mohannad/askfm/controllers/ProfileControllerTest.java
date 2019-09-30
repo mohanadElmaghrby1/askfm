@@ -58,9 +58,7 @@ class ProfileControllerTest {
 
     @Test
     public void testGetProfileNotFound() throws Exception {
-
         when(userService.findByUserName(anyString())).thenThrow(NotFoundException.class);
-
         mockMvc.perform(get("/sadffas"))
                 .andExpect(status().isNotFound()) ;
 
