@@ -18,12 +18,25 @@ public class FollowerServiceImpl implements FollowerService {
     private FollowerRepository followerRepository;
 
     @Override
-    public Follower follow(User user , User follower) {
-        Follower followerRelation = new Follower();
-        followerRelation.setFollower(follower);
-        followerRelation.setUser(user);
-        return followerRepository.save(followerRelation);
-
+    public Follower follow(User followed) {
+        //make logged in user follow this user
+        //get logged in user object
+        UserDetailsCommand userDetailsCommand = (UserDetailsCommand)
+                SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        // logged user(follower) want to follow the other user
+        User follower = userDetailsCommand.getUser();
+        Follower followerRelation = findByUserAndFollower(followed, follower);
+        if(followerRelation!=null){
+            //unFollow
+            delete(followerRelation);
+        }else {
+           //follow
+            followerRelation=new Follower();
+            followerRelation.setFollower(follower);
+            followerRelation.setUser(followed);
+            followerRepository.save(followerRelation);
+        }
+        return followerRelation;
     }
 
     @Override
@@ -34,7 +47,7 @@ public class FollowerServiceImpl implements FollowerService {
 
     @Override
     public boolean isLoggedInUserIsAFollower(User user) {
-        //get logged in user
+        //get logged in authenticated user
         UserDetailsCommand userDetailsCommand = (UserDetailsCommand)
                 SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         //get requested user profile
