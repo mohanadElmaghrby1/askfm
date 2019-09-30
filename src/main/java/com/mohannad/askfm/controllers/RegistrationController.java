@@ -21,7 +21,7 @@ public class RegistrationController {
         this.userService = userService;
     }
 
-    @RequestMapping("/sign-up")
+    @RequestMapping({"/sign-up" , "/register"})
     public String signUp(Model model){
         model.addAttribute("user" , new UserCommand());
         return "sign-up";
