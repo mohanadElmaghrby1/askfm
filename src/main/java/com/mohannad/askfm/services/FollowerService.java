@@ -9,5 +9,6 @@ import com.mohannad.askfm.model.User;
 public interface FollowerService  {
     Follower follow(User user , User follower) ;
     Follower findByUserAndFollower(User user , User follower);
+    boolean isLoggedInUserIsAFollower(User user);
     Follower delete(Follower follower);
 }

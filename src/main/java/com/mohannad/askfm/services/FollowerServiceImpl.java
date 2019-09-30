@@ -1,9 +1,11 @@
 package com.mohannad.askfm.services;
 
+import com.mohannad.askfm.commands.UserDetailsCommand;
 import com.mohannad.askfm.model.Follower;
 import com.mohannad.askfm.model.User;
 import com.mohannad.askfm.repositories.FollowerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,9 +29,20 @@ public class FollowerServiceImpl implements FollowerService {
     @Override
     public Follower findByUserAndFollower(User user, User follower) {
         Follower followerR1= followerRepository.findByUserAndFollower(user , follower);
-//        Follower byUser_idAndFollower_id = followerRepository.findByUser_idAndFollower_id(user.getId(), follower.getId());
         return followerR1;
     }
+
+    @Override
+    public boolean isLoggedInUserIsAFollower(User user) {
+        //get logged in user
+        UserDetailsCommand userDetailsCommand = (UserDetailsCommand)
+                SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        //get requested user profile
+        User loggedInUser = userDetailsCommand.getUser();
+        Follower followerRelation = findByUserAndFollower(user, loggedInUser);
+        return followerRelation==null?false:true;
+    }
+
 
     @Override
     public Follower delete(Follower follower) {
