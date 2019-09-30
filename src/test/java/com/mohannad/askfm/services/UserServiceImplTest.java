@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Optional;
@@ -18,6 +19,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
 
+@SpringBootTest
 class UserServiceImplTest {
 
     UserServiceImpl userService;
@@ -96,7 +98,7 @@ class UserServiceImplTest {
         when(userRepository.findByUsername(anyString())).thenReturn(user);
 
         //it should return the saved user
-        User savedUser = userService.findByEmail("mohanad20201996a@gmail.com");
+        User savedUser = userService.findByUserName("mohanad20201996a@gmail.com");
 
         //assert that the returned value not equal null
         assertNotNull(savedUser,"Null user returned");
