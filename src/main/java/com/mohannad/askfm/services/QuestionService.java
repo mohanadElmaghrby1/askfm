@@ -10,5 +10,7 @@ import java.util.List;
  */
 public interface QuestionService {
     Question save(Question question);
+    Question delete(Question question);
+    Question findById(long id);
     List<Question> findAllAskedQuestion(User user);
 }
