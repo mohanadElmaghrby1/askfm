@@ -29,35 +29,9 @@ public class FollowController {
 
     @GetMapping("follow/{id}")
     public String followAndUnFollow(@PathVariable String id, Principal principal){
-        //make logged in user follow this user
-        UserDetailsCommand userDetailsCommand = (UserDetailsCommand)
-                SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        //get logged in user object
-        // logged user want to follow the other user
-        User follower = userDetailsCommand.getUser();
-
         //get user to follow
         User followed = userService.findByID(new Long(id));
-
-        //make currentUser follow the followedUser
-        //check if followed the unfoloow
-        Follower followerRelation = followerService.findByUserAndFollower(followed, follower);
-        /*alet message sent to html page*/
-        String message;
-        if(followerRelation!=null){
-            //unFollow
-            followerService.delete(followerRelation);
-            message="You unFollowed "+followed.getUsername();
-
-        }else {
-            //follow
-            followerService.follow(followed,follower);
-            message="Now you follow "+followed.getUsername();
-        }
-        System.out.println(id);
-        System.out.println(principal.toString());
-
+        followerService.follow(followed);
         //redirect to the same user profile
         return "redirect:/"+followed.getUsername();
     }
