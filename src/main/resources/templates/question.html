@@ -67,7 +67,8 @@
                         <a th:href="@{'/{username}'(username=${question.getSenderUser().getUsername()})}"
                            th:text="${question.getSenderUser().getUsername()}">Account name</a>
                         <p th:text="${question.getCreateDate().getHours()}">About 1 hr</p>
-                        <a href="#"><i class="fa fa-times delete" aria-hidden="true"></i></a>
+                        <a th:href="@{'/question/delete/{id}'(id=${question.getId()})}">
+                            <i class="fa fa-times delete" aria-hidden="true"></i></a>
                         <a href="answerpeople.html" class="answer answer_btn">Answer <i class="fa fa-paper-plane-o"
                                                                                         aria-hidden="true"></i></a>
                     </div>
