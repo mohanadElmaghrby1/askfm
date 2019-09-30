@@ -37,27 +37,10 @@ public class ProfileController {
 
     @RequestMapping({"/{username}"})
     public String getProfile(@PathVariable String username , Model model){
-        //check if user is correct
         User user =  userService.findByUserName(username);
-        if (user==null)
-            throw new NotFoundException("User "+username +" Not Found");
-
-        UserCommand userCommand = userToUserCommand.convert(user);
-        //add attribute for if the logged user follow the requested user profile
-        //make logged in user follow this user
-        UserDetailsCommand userDetailsCommand = (UserDetailsCommand)
-                SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        //get logged in user object
-        // logged user want to follow the other user
-        User follower = userDetailsCommand.getUser();
-        Follower followerRelation = followerService.findByUserAndFollower(user, follower);
-        String isLoggedUserFollowtheRequested = "no";
-        if (followerRelation!=null)
-            isLoggedUserFollowtheRequested="yes";
-        model.addAttribute("follow" , isLoggedUserFollowtheRequested);
-        System.out.println("follow = "+isLoggedUserFollowtheRequested);
-        model.addAttribute("user" , userCommand);
+        String isLoggedUserFollowTheRequested= followerService.isLoggedInUserIsAFollower(user)?"yes":"no";
+        model.addAttribute("follow" , isLoggedUserFollowTheRequested);
+        model.addAttribute("user" , user);
         return "profile";
     }
 }
