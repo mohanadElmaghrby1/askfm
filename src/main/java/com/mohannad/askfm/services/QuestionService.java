@@ -1,5 +1,6 @@
 package com.mohannad.askfm.services;
 
+import com.mohannad.askfm.model.Answer;
 import com.mohannad.askfm.model.Question;
 import com.mohannad.askfm.model.User;
 
@@ -13,4 +14,5 @@ public interface QuestionService {
     Question delete(Question question);
     Question findById(long id);
     List<Question> findAllAskedQuestion(User user);
+    List<Question> findAllNotAnsweredQuestion(User user , Answer answer);
 }

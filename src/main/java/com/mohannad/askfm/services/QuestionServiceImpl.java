@@ -1,6 +1,7 @@
 package com.mohannad.askfm.services;
 
 import com.mohannad.askfm.exceptions.NotFoundException;
+import com.mohannad.askfm.model.Answer;
 import com.mohannad.askfm.model.Question;
 import com.mohannad.askfm.model.User;
 import com.mohannad.askfm.repositories.QuestionRepository;
@@ -44,6 +45,11 @@ public class QuestionServiceImpl implements QuestionService {
     @Override
     public List<Question> findAllAskedQuestion(User user) {
         return questionRepository.findByReceiverUser(user);
+    }
+
+    @Override
+    public List<Question> findAllNotAnsweredQuestion(User user, Answer answer) {
+        return questionRepository.findByReceiverUserAndAnswer(user ,answer);
     }
 
 
