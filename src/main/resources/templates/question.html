@@ -4,11 +4,11 @@
     <meta charset="utf-8">
 
     <title>Question | Ask.fm</title>
-    <link rel="shortcut icon" th:href="@{images}" href="../static/images/logo.png">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="../static/css/font-awesome.min.css">
-    <link rel="stylesheet" th:href="@{/css/normalaize.css}" href="../static/css/normalaize.css">
-    <link rel="stylesheet" th:href="@{/css/question.css}" href="../static/css/question.css"/>
+    <link rel="shortcut icon" th:href="@{images}" href="images/logo.png">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="css/bootstrap.css">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="css/font-awesome.min.css">
+    <link rel="stylesheet" th:href="@{/css/normalaize.css}" href="css/normalaize.css">
+    <link rel="stylesheet" th:href="@{/css/question.css}" href="css/question.css"/>
 </head>
 
 <body>
@@ -69,8 +69,8 @@
                         <p th:text="${question.getCreateDate().getHours()}">About 1 hr</p>
                         <a th:href="@{'/question/delete/{id}'(id=${question.getId()})}">
                             <i class="fa fa-times delete" aria-hidden="true"></i></a>
-                        <a href="answerpeople.html" class="answer answer_btn">Answer <i class="fa fa-paper-plane-o"
-                                                                                        aria-hidden="true"></i></a>
+                        <a th:href="@{'answer/{questionid}'(questionid=${question.getId()})}" class="answer answer_btn">Answer <i class="fa fa-paper-plane-o"
+                                                                                      aria-hidden="true"></i></a>
                     </div>
                 </section>
                 <div class="clear"></div>
