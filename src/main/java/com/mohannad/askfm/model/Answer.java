@@ -1,5 +1,7 @@
 package com.mohannad.askfm.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -11,8 +13,10 @@ import java.util.Set;
 @Entity
 public class Answer extends BaseEntity {
     private String content;
-    private Date date;
-
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "create_date", nullable = false, updatable = false)
+    @CreationTimestamp
+    private Date createDate;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -32,12 +36,12 @@ public class Answer extends BaseEntity {
         this.content = content;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public User getUser() {
