@@ -35,7 +35,8 @@ public class QuestionController {
             return "redirect:/login";
         //get user asked questions
         User loggedInUser = userService.findByUserName(principal.getName());
-        List<Question> allAskedQuestions = questionService.findAllAskedQuestion(loggedInUser);
+        //get the not answered question
+        List<Question> allAskedQuestions = questionService.findAllNotAnsweredQuestion(loggedInUser , null);
         model.addAttribute("questions" , allAskedQuestions);
         return "question";
     }
