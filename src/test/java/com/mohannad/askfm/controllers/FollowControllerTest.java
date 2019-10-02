@@ -47,8 +47,8 @@ class FollowControllerTest {
         followed.setUsername("samy");
         followerRelations.setUser(followed);
         when(userService.findByUserName(any())).thenReturn(followed);
-        mockMvc.perform(get("/follow/samy"))
-                .andExpect(status().isOk())
+        mockMvc.perform(get("/follow/samy").param("username","samy"))
+                .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/samy"));
 
     }
