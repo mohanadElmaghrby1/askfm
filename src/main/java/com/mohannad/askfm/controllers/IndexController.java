@@ -26,11 +26,11 @@ public class IndexController {
     @GetMapping({"/","/home", "/index.html"})
     public String loadAnswersToHomePage(Model model){
         List<Answer> allAnswers = answerService.findAll();
-        model.addAttribute("answers" , allAnswers);
         List<Answer> allFollowedUsersAnswers = answerService.findAllFollowedUsersAnswers();
         allFollowedUsersAnswers.forEach(answer -> {
             System.out.println("loaded ans :"+answer.getContent());
         });
+        model.addAttribute("answers" , allFollowedUsersAnswers);
         return "index";
     }
 
