@@ -40,51 +40,21 @@
            <!-- --------------------------------------------- start Post ----------------------------------- -->
             <div class="row">
                <div class="container">
-                
 
                   <div class="post col-md-8 col-xs-12">
-                     <article>
-                        
+                     <article th:each="answer : ${answers}">
+                         <section >
+                             <div class="question" >
+                                 <h3 class="h3" th:text="${answer.getQuestion().getContent()}">How Are You ? </h3>
+                                 <a href="#">Account name</a>
+                             </div>
+                             <div class="answer" th:text="${answer.getContent()}">
+                                 <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
 
-                         <section>
-                         <div class="question">
-                            <h3 class="h3">How Are You ? </h3>
-                            <a href="#">Account name</a>
-                         </div>
-                            <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
-
-                             <img src="images/person1.jpg" >
-                              <span>Abdo H. Ahmed</span> 
-                            </div>
-                       </section>
-                        
-                        <footer>
-                          <div class="one">
-                             <i class="fa fa-heart fa-lg" aria-hidden="true"><span>5</span></i> 
-                          </div>
-                          <div class="two">
-                              <i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i>
-                              <i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
-                               
-
-                          </div>
-                          
-                        </footer>
-                        <div class="clear"></div>
-
-                         <section>
-                         <div class="question">
-                            <h3 class="h3">How Are You ? </h3>
-                            <a href="#">Account name</a>
-                         </div>
-                            <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
-
-                             <img src="images/person1.jpg" >
-                              <span>Abdo H. Ahmed</span> 
-                            </div>
-                       </section>
+                                 <img src="images/person1.jpg" >
+                                 <span th:text="${answer.getUser().getName()}">Abdo H. Ahmed</span>
+                             </div>
+                         </section>
                         
                         <footer>
                           <div class="one">
@@ -93,121 +63,9 @@
                           <div class="two">
                               <i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i>
                               <i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
-                               
-
                           </div>
-                          
                         </footer>
                         <div class="clear"></div>
-
-                        <section>
-                         <div class="question">
-                            <h3 class="h3">How Are You ? </h3>
-                            <a href="#">Account name</a>
-                         </div>
-                            <div class="answer">
-                              <p> لا انا حلو اط جدع انت رخم ليه كدا 😷😷</p> 
-
-                             <img src="images/person1.jpg" >
-                              <span>Abdo H. Ahmed</span> 
-                            </div>
-                       </section>
-                        
-                        <footer>
-                          <div class="one">
-                             <i class="fa fa-heart fa-lg" aria-hidden="true"><span>5</span></i>
-                          </div>
-                          <div class="two">
-                              <i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i>
-                              <i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
-                               
-
-                          </div>
-                          
-                        </footer>
-                        <div class="clear"></div>
-
-                        <section>
-                         <div class="question">
-                            <h3 class="h3">How Are You ? </h3>
-                            <a href="#">Account name</a>
-                         </div>
-                            <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
-
-                             <img src="images/person1.jpg" >
-                              <span>Abdo H. Ahmed</span> 
-                            </div>
-                       </section>
-                        
-                        <footer>
-                          <div class="one">
-                             <i class="fa fa-heart fa-lg" aria-hidden="true"><span>5</span></i>
-                          </div>
-                          <div class="two">
-                              <i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i>
-                              <i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
-                               
-
-                          </div>
-                          
-                        </footer>
-                        <div class="clear"></div>
-
-                        <section>
-                         <div class="question">
-                            <h3 class="h3">How Are You ? </h3>
-                            <a href="#">Account name</a>
-                         </div>
-                            <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
-
-                             <img src="images/person1.jpg" >
-                              <span>Abdo H. Ahmed</span> 
-                            </div>
-                       </section>
-                        
-                        <footer>
-                          <div class="one">
-                             <i class="fa fa-heart fa-lg" aria-hidden="true"><span>5</span></i>
-                          </div>
-                          <div class="two">
-                              <i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i>
-                              <i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
-                               
-
-                          </div>
-                          
-                        </footer>
-                        <div class="clear"></div>
-
-                        <section>
-                         <div class="question">
-                            <h3 class="h3">How Are You ? </h3>
-                            <a href="#">Account name</a>
-                         </div>
-                            <div class="answer">
-                              <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p> 
-
-                             <img src="images/person1.jpg" >
-                              <span>Abdo H. Ahmed</span> 
-                            </div>
-                       </section>
-                        
-                        <footer>
-                          <div class="one">
-                             <i class="fa fa-heart fa-lg" aria-hidden="true"><span>5</span></i>
-                          </div>
-                          <div class="two">
-                              <i class="fa fa-share-square-o fa-lg" aria-hidden="true"></i>
-                              <i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
-                               
-
-                          </div>
-                          
-                        </footer>
-                        <div class="clear"></div>
-
                      </article>
 
                     </div>
