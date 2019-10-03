@@ -11,6 +11,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.security.Principal;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -23,6 +25,9 @@ class QuestionControllerTest {
     QuestionService questionService;
     @Mock
     UserService userService;
+
+    @Mock
+    Principal principal;
 
     QuestionController questionController;
     MockMvc mockMvc;
@@ -43,7 +48,7 @@ class QuestionControllerTest {
         when(userService.findByUserName(any())).thenReturn(user);
         when(questionService.findAllAskedQuestion(any())).thenReturn(null);
         mockMvc.perform(get("/questions"))
-                .andExpect(status().isOk())
+                .andExpect(status().is3xxRedirection())
                 .andExpect(model().attributeExists("questions"))
                 .andExpect(view().name("question"));
     }
