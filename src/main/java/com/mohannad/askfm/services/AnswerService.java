@@ -11,4 +11,5 @@ public interface AnswerService {
     Answer save(Answer answer);
     Answer findById(Long id);
     List<Answer> findAll();
+    List<Answer> findAllFollowedUsersAnswers();
 }
