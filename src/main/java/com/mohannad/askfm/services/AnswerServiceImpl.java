@@ -5,6 +5,8 @@ import com.mohannad.askfm.model.Answer;
 import com.mohannad.askfm.repositories.AnswerRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -31,5 +33,14 @@ public class AnswerServiceImpl implements AnswerService {
             throw new NotFoundException("Answer Not Found For answer id "+id);
         }
         return answerOptional.get();
+    }
+
+    @Override
+    public List<Answer> findAll() {
+        List<Answer> list = new ArrayList<>();
+        answerRepository.findAll().forEach(answer -> {
+            list.add(answer);
+        });
+        return list;
     }
 }
