@@ -25,6 +25,7 @@ public class IndexController {
 
     @GetMapping({"/","/home", "/index.html"})
     public String loadAnswersToHomePage(Model model){
+        //get all following answered questions
         List<Answer> allFollowedUsersAnswers = answerService.findAllFollowedUsersAnswers();
         allFollowedUsersAnswers.forEach(answer -> {
             System.out.println("loaded ans :"+answer.getContent());
