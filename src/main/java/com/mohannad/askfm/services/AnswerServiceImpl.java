@@ -43,4 +43,9 @@ public class AnswerServiceImpl implements AnswerService {
         });
         return list;
     }
+
+    @Override
+    public List<Answer> findAllFollowedUsersAnswers() {
+        return answerRepository.gitFollowedAnswers();
+    }
 }
