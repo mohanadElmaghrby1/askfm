@@ -77,6 +77,7 @@ class AnswerControllerTest {
 
         Answer answer= new Answer();
         answer.setContent("good");
+        when(principal.getName()).thenReturn("nono");
 
         mockMvc.perform(post("/answer/1").param("answer", "answer")
                 .param("content" , "content"))
