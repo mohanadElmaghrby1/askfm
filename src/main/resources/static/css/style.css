@@ -158,8 +158,8 @@ input[type="checkbox"] {
 	background: #FF643C;
 	color:#FFf;
 }
-.ask.friends {background: #FFF}
-.ask.friends .account {float: left;  margin-bottom: 10px ; border-top: 1px solid #000; padding-top: 5px}
+.ask.friends {background: #FFF ; float: right}
+.ask.friends .account {float: right;  margin-bottom: 10px ; border-top: 1px solid #000; padding-top: 5px}
 .ask.friends .account img{width: 20%; height: 20%; border-radius: 50%}
 
 /*---------------------------------------------End ask-------------------------------------------*/
