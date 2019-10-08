@@ -28,7 +28,7 @@ public class QuestionController {
         this.userService = userService;
     }
 
-    @RequestMapping("/questions")
+    @RequestMapping({"/questions" , "/question.html"})
     public String getQuestions(Principal  principal , Model model){
         //if not logged in
         if (principal==null)
