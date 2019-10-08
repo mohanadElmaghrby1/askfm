@@ -48,7 +48,7 @@
                     <div class="force-overflow">
                         <div class="account" th:each="user :${following}">
                             <a href="#"><img src="images/person1.jpg"></a>
-                            <a href="#">
+                            <a th:href="@{'/{username}'(username=${user.getUser().getUsername()})}">
                                 <span th:text="${user.getUser().getName()}">Abdo H. Ahmed</span>
                             </a>
                             <a href="askQuestion.html" class="btn"> ask</a>
