@@ -6,9 +6,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 /**
  * created by mohannad on 15/09/2019
  */
 public interface FollowerRepository extends CrudRepository<Follower , Long> {
     Follower findByUserAndFollower(User user , User follower);
+    List<Follower> findByFollower(User follower);
 }
