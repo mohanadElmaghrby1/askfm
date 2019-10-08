@@ -58,11 +58,11 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
 
         //create user 2
         User user2=new User();
-        user2.setName("soso hamdy");
+        user2.setName("fady hamdy");
         user2.setPassword(encoder.encode("12345678"));
-        user2.setUsername("sosoham");
+        user2.setUsername("fady1");
         user2.setActive(1);
-        user2.setEmail("mohanad20201996a@gmail.com");
+        user2.setEmail("mohanad20d201996a@gmail.com");
         user2.setBirthDay("20-2-1996");
         user2.setGender("male");
         user2.setBio("software developer");
@@ -70,7 +70,23 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user2.setProfileImagePath("www.com");
         user2.setBackgroundImagePath("www.comB");
 
+
+        //create user 2
+        User user3=new User();
+        user3.setName("soso hamdy");
+        user3.setPassword(encoder.encode("12345678"));
+        user3.setUsername("sosoham");
+        user3.setActive(1);
+        user3.setEmail("mohanad20201996a@gmail.com");
+        user3.setBirthDay("20-2-1996");
+        user3.setGender("male");
+        user3.setBio("software developer");
+        user3.setLocation("kom hamada");
+        user3.setProfileImagePath("www.com");
+        user3.setBackgroundImagePath("www.comB");
+
         userRepository.save(user);
         userRepository.save(user2);
+        userRepository.save(user3);
     }
 }
