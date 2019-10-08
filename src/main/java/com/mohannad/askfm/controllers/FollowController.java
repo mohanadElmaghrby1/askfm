@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.security.Principal;
+import java.util.List;
 
 /**
  * created by mohannad  on 28/09/19
@@ -34,5 +35,16 @@ public class FollowController {
         followerService.follow(followed);
         //redirect to the same user profile
         return "redirect:/"+followed.getUsername();
+    }
+
+    @GetMapping({"/friends.html", "/friends"})
+    public String getFriends(Model model, Principal principal) {
+        //get logged in user
+        String loggedUsername = principal.getName();
+        User loggedInUser = userService.findByUserName(loggedUsername);
+
+        List<Follower> following = followerService.getFollowing(loggedInUser);
+        model.addAttribute("friends" , following);
+        return "friends";
     }
 }
