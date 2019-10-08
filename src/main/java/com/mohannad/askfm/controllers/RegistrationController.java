@@ -1,6 +1,7 @@
 package com.mohannad.askfm.controllers;
 
 import com.mohannad.askfm.commands.UserCommand;
+import com.mohannad.askfm.model.User;
 import com.mohannad.askfm.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +43,7 @@ public class RegistrationController {
                             "There is already a user registered with the email provided");
         }
         //check if userName used then add error message
-        if (userService.findByUserName(userCommand.getUsername())!=null) {
+        if (userService.findByUserNameWithNull(userCommand.getUsername()) !=null) {
             bindingResult
                     .rejectValue("username", "error.user",
                             "There is already a user registered with the userName provided");
