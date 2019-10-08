@@ -45,7 +45,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public List<Answer> findAllFollowedUsersAnswers() {
-        return answerRepository.gitFollowedAnswers();
+    public List<Answer> findAllFollowedUsersAnswers(String logged_user_id) {
+        return answerRepository.gitFollowedAnswers(logged_user_id);
     }
 }
