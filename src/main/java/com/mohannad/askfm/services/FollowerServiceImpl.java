@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * create by mohannad on 9/26/2019
  */
@@ -46,8 +48,8 @@ public class FollowerServiceImpl implements FollowerService {
     }
 
     @Override
-    public Follower findByFollower(User follower) {
-        return null;
+    public List<Follower> findByFollower(User follower) {
+        return followerRepository.findByFollower(follower);
     }
 
     @Override
