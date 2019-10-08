@@ -1,42 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-
-    <title>Feed | Ask.fm</title>
-    <link rel="shortcut icon" href="images/logo.png">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/normalaize.css">
+    <div th:replace="/fragments/header :: header-css"/>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 <!-- ------------------------------- Start navbar--------------------------------- -->
-<div class="navgbar">
-    <div class="container">
-        <a href="index.html">
-            <img src="images/logonav.png">
-        </a>
-        <ul>
-            <li class="active"><a th:href="@{/}">Feed</a></li>
-            <li><a th:href="@{/questions}">Question</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="friends.html">Friends</a></li>
-            <li><a href="notification.html">Notification</a> <span>4</span></li>
-            <li class="menu">
-                <a><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
-                <ul class="sub-menu">
-                    <li><a href="setting-profile.html">Setting</a></li>
-                    <li><a th:href="@{/logout}">LogOut</a></li>
-                </ul>
+<div th:replace="/fragments/header :: header"/>
 
-            </li>
-        </ul>
-        <div class="clear"></div>
-    </div>
-
-</div>
 <!-- --------------------------------------------- start Post ----------------------------------- -->
 <div class="row">
     <div class="container">
@@ -93,9 +65,6 @@
 
 
     </div>
-
-    <script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>
-    <script src="js/bootstrap.mins.js" type="text/javascript"></script>
-    <script src="js/custom.js" type="text/javascript"></script>
+</div>
 </body>
 </html>

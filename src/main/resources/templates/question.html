@@ -1,42 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-
-    <title>Question | Ask.fm</title>
-    <link rel="shortcut icon" th:href="@{images}" href="images/logo.png">
-    <link rel="stylesheet" th:href="@{/css/bootstrap.css}" href="css/bootstrap.css">
-    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="css/font-awesome.min.css">
-    <link rel="stylesheet" th:href="@{/css/normalaize.css}" href="css/normalaize.css">
-    <link rel="stylesheet" th:href="@{/css/question.css}" href="css/question.css"/>
+    <div th:replace="/fragments/header :: header-css"/>
+    <link rel="stylesheet" href="css/question.css">
 </head>
 
 <body>
 <!-- ------------------------------- Start navbar--------------------------------- -->
-<div class="navgbar">
-    <div class="container">
-        <a href="index.html">
-            <img src="images/logonav.png">
-        </a>
-        <ul>
-            <li><a href="index.html" th:href="@{/}">Feed</a></li>
-            <li class="active"><a th:href="@{/questions}">Question</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="friends.html">Friends</a></li>
-            <li><a href="notification.html">Notification</a> <span>4</span></li>
-            <li class="menu">
-                <a><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
-                <ul class="sub-menu">
-                    <li><a href="setting-profile.html">Setting</a></li>
-                    <li><a href="#">Logout</a></li>
-                </ul>
+<div th:replace="/fragments/header :: header"/>
 
-            </li>
-        </ul>
-        <div class="clear"></div>
-    </div>
 
-</div>
 <!-- --------------------------------------------- start Post ----------------------------------- -->>
 <div class="row">
     <div class="container">
