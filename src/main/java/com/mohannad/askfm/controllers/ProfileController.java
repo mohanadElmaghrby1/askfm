@@ -43,4 +43,12 @@ public class ProfileController {
         model.addAttribute("user" , user);
         return "profile";
     }
+
+    @GetMapping({"/profile.html" , "/profile"})
+    public String getProfilePage(Model model , Principal principal){
+        if (principal==null)
+            return "redirect:/login";
+
+        return  "redirect:/"+principal.getName();
+    }
 }
