@@ -1,7 +1,9 @@
 package com.mohannad.askfm.controllers;
 
 import com.mohannad.askfm.model.Answer;
+import com.mohannad.askfm.model.User;
 import com.mohannad.askfm.services.AnswerService;
+import com.mohannad.askfm.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,16 +19,22 @@ import java.util.List;
 @Controller
 public class IndexController {
 
-    AnswerService answerService;
+    private AnswerService answerService;
+    private UserService userService;
 
-    public IndexController(AnswerService answerService) {
+
+    public IndexController(AnswerService answerService, UserService userService) {
         this.answerService = answerService;
+        this.userService = userService;
     }
 
     @GetMapping({"/","/home", "/index.html"})
-    public String loadAnswersToHomePage(Model model){
+    public String loadAnswersToHomePage(Model model , Principal principal){
+        //get logged in user
+        User loggedInUser= userService.findByUserName(principal.getName());
+
         //get all following answered questions
-        List<Answer> allFollowedUsersAnswers = answerService.findAllFollowedUsersAnswers();
+        List<Answer> allFollowedUsersAnswers = answerService.findAllFollowedUsersAnswers(loggedInUser.getId().toString());
         allFollowedUsersAnswers.forEach(answer -> {
             System.out.println("loaded ans :"+answer.getContent());
         });
