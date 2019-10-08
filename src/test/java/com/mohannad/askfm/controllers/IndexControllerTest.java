@@ -2,6 +2,7 @@ package com.mohannad.askfm.controllers;
 
 import com.mohannad.askfm.services.AnswerService;
 import com.mohannad.askfm.services.IndexService;
+import com.mohannad.askfm.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -22,9 +23,12 @@ class IndexControllerTest {
     @Mock
     AnswerService answerService;
 
+    @Mock
+    UserService userService;
+
     @BeforeEach
     void setUp() {
-        indexController = new IndexController(answerService);
+        indexController = new IndexController(answerService,userService);
         mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
     }
 
