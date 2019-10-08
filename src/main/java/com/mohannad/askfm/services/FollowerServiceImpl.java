@@ -46,6 +46,11 @@ public class FollowerServiceImpl implements FollowerService {
     }
 
     @Override
+    public Follower findByFollower(User follower) {
+        return null;
+    }
+
+    @Override
     public boolean isLoggedInUserIsAFollower(User user) {
         //get logged in authenticated user
         UserDetailsCommand userDetailsCommand = (UserDetailsCommand)
