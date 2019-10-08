@@ -1,6 +1,7 @@
 package com.mohannad.askfm.controllers;
 
 import com.mohannad.askfm.services.AnswerService;
+import com.mohannad.askfm.services.FollowerService;
 import com.mohannad.askfm.services.IndexService;
 import com.mohannad.askfm.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,9 +27,12 @@ class IndexControllerTest {
     @Mock
     UserService userService;
 
+    @Mock
+    FollowerService followerService;
+
     @BeforeEach
     void setUp() {
-        indexController = new IndexController(answerService,userService);
+        indexController = new IndexController(answerService,userService,followerService);
         mockMvc = MockMvcBuilders.standaloneSetup(indexController).build();
     }
 
