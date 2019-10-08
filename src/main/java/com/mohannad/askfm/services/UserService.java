@@ -10,5 +10,6 @@ public interface UserService {
     User findByEmail( String email);
     UserCommand findCommandById(Long id);
     User findByUserName(String username);
+    User findByUserNameWithNull(String username);
 
 }

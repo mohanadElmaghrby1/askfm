@@ -61,4 +61,12 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundException("User not found. for id value:"+username);
         return user;
     }
+
+    @Override
+    public User findByUserNameWithNull(String username) {
+        User user = userRepository.findByUsername(username);
+        return user;
+    }
+
+
 }
