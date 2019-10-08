@@ -46,16 +46,15 @@
                          <section >
                              <div class="question" >
                                  <h3 class="h3" th:text="${answer.getQuestion().getContent()}">How Are You ? </h3>
-                                 <a href="#">Account name</a>
+                                 <a th:href="@{'/{username}'(username=${answer.getQuestion().getSenderUser().getUsername()})}"
+                                    th:text="${answer.getQuestion().getSenderUser().getUsername()}">Account name</a>
                              </div>
-                             <div class="answer" th:text="${answer.getContent()}">
-                                 <p> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
-
-                                 <img src="images/person1.jpg" >
+                             <div class="answer">
+                                 <p th:text="${answer.getContent()}"> لا انا حلو اطلع منها انت  يا جدع انت  😷😷لا انا حلو اطلع منها انت  يا جدع انت رخم ليه كدا 😷😷</p>
+                                 <img th:src="@{/images/person1.jpg}"/>
                                  <span th:text="${answer.getUser().getName()}">Abdo H. Ahmed</span>
                              </div>
                          </section>
-                        
                         <footer>
                           <div class="one">
                              <i class="fa fa-heart fa-lg" aria-hidden="true"><span>5</span></i>
@@ -70,9 +69,7 @@
 
                     </div>
                     <!-- --------------------------------------------- End Post ----------------------------------- -->
-                    
-            
-            
+
             <!-- --------------------------------------------- Start ask ----------------------------------- -->
                 <div class="hiddeninask">
                   <div class="ask col-md-3  col-md-offset-1">
