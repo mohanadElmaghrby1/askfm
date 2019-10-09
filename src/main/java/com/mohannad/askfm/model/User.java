@@ -44,8 +44,8 @@ public class User extends BaseEntity {
     private String gender;
     private String location;
     private String bio;
-//    private String web;
-//    private String hashTags;
+    private String web;
+    private String hashTags;
 //    private byte allowAnonQuestion; // Allow anonymous questions ?
 //    private byte allowSharePosts; // >Allow other users to share posts ?
 //    private byte showStatus;
@@ -162,21 +162,22 @@ public class User extends BaseEntity {
         this.bio = bio;
     }
 
-//    public String getWeb() {
-//        return web;
-//    }
-//
-//    public void setWeb(String web) {
-//        this.web = web;
-//    }
-//
-//    public String getHashTags() {
-//        return hashTags;
-//    }
-//
-//    public void setHashTags(String hashTags) {
-//        this.hashTags = hashTags;
-//    }
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
+    }
+
+    public String getHashTags() {
+        return hashTags;
+    }
+
+    public void setHashTags(String hashTags) {
+        this.hashTags = hashTags;
+    }
+
 //
 //    public byte getAllowAnonQuestion() {
 //        return allowAnonQuestion;
