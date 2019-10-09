@@ -6,6 +6,7 @@ import com.mohannad.askfm.model.User;
 public interface UserService {
 
     UserCommand saveUserCommand(UserCommand userCommand);
+    User save(User user);
     User findByID( Long id);
     User findByEmail( String email);
     UserCommand findCommandById(Long id);

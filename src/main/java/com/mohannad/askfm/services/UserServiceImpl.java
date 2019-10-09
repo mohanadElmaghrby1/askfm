@@ -44,6 +44,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User save(User user) {
+        //set user role
+        Role userRole = roleService.findByRole("USER");
+        user.setRoles(new HashSet<Role>(Collections.singleton(userRole)));
+        return userRepository.save(user);
+    }
+
+    @Override
     public User findByID(Long id) {
         Optional<User> userOptional = userRepository.findById(id);
         if (!userOptional.isPresent())
