@@ -18,7 +18,11 @@ public class UserCommandToUser implements Converter<UserCommand , User> {
         user.setUsername(userCommand.getUsername());
         user.setName(userCommand.getName());
         user.setId(userCommand.getId());
+        user.setLocation(userCommand.getLocation());
         user.setActive(1);
+        user.setBio(userCommand.getBio());
+        user.setWeb(userCommand.getWeb());
+        user.setHashTags(userCommand.getHashTags());
         user.setEmail(userCommand.getEmail());
         user.setGender(userCommand.getGender());
         Role userRole = new Role();
