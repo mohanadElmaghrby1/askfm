@@ -7,6 +7,7 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,6 +42,9 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         /*password encoder*/
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+
+
+
         //create a user
         User user = new User();
         user.setUsername("Mohannad_Elmaghrby");
@@ -54,6 +58,10 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user.setPassword(encoder.encode("123456"));
         user.setProfileImagePath("www.com");
         user.setBackgroundImagePath("www.comB");
+
+        Role userRole = new Role();
+        userRole.setRole("USER");
+        user.setRoles(new HashSet<Role>(Collections.singleton(userRole)));
 
 
         //create user 2
@@ -69,6 +77,7 @@ public class AskBootstrap  implements ApplicationListener<ContextRefreshedEvent>
         user2.setLocation("kom hamada");
         user2.setProfileImagePath("www.com");
         user2.setBackgroundImagePath("www.comB");
+
 
 
         //create user 2
