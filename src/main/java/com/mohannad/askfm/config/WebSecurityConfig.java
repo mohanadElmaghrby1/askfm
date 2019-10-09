@@ -37,6 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
+                .clearAuthentication(true)
                 .permitAll();
 
         //for h2 console to work
