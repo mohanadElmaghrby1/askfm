@@ -36,13 +36,18 @@ class UserServiceImplTest {
     @Mock
     PasswordEncoder passwordEncoder;
 
+    @Mock
+    RoleService roleService;
+
+
     @BeforeEach
     public void setUp() {
         //setup mocks , telling mockito that we want to use it here
         MockitoAnnotations.initMocks(this);
 
         //create a RecipeServiceImpl obj using mock
-        userService = new UserServiceImpl(userRepository , userToUserCommand , userCommandToUser , passwordEncoder);
+        userService = new UserServiceImpl(userRepository, userToUserCommand, userCommandToUser, passwordEncoder
+                , roleService);
     }
 
     @Test
@@ -59,7 +64,7 @@ class UserServiceImplTest {
         User savedUser = userService.findByID(1L);
 
         //assert that the returned value not equal null
-        assertNotNull(savedUser,"Null user returned");
+        assertNotNull(savedUser, "Null user returned");
         //verify that findbyid is called once
         verify(userRepository, times(1)).findById(anyLong());
 
@@ -80,7 +85,7 @@ class UserServiceImplTest {
         User savedUser = userService.findByEmail("mohanad20201996a@gmail.com");
 
         //assert that the returned value not equal null
-        assertNotNull(savedUser,"Null user returned");
+        assertNotNull(savedUser, "Null user returned");
         //verify that findByEmail is called once
         verify(userRepository, times(1)).findByEmail(anyString());
 
@@ -101,7 +106,7 @@ class UserServiceImplTest {
         User savedUser = userService.findByUserName("mohanad20201996a@gmail.com");
 
         //assert that the returned value not equal null
-        assertNotNull(savedUser,"Null user returned");
+        assertNotNull(savedUser, "Null user returned");
         //verify that findByUsername is called once
         verify(userRepository, times(1)).findByUsername(anyString());
 
