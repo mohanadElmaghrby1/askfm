@@ -28,6 +28,11 @@ public class UserCommand {
     private Integer birthYear;
     private String gender;
     private String language;
+    private String bio;
+    private String web;
+    private String hashTags;
+    private String location;
+
 
     public Long getId() {
         return id;
@@ -107,6 +112,38 @@ public class UserCommand {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
+    }
+
+    public String getHashTags() {
+        return hashTags;
+    }
+
+    public void setHashTags(String hashTags) {
+        this.hashTags = hashTags;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     @Override
